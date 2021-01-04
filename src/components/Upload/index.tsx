@@ -25,9 +25,13 @@ const Upload: React.FC<UploadProps> = ({ onUpload }: UploadProps) => {
     return <UploadMessage type="success">Solte o arquivo aqui</UploadMessage>;
   }
 
+  // fazendo validação de arquivos se eles estão numa extensão valida
   return (
     <>
-      <Dropzone accept=".csv, application/vnd.ms-excel, text/csv," onDropAccepted={(files) => onUpload(files)}>
+      <Dropzone
+        accept=".csv, application/vnd.ms-excel, text/csv,"
+        onDropAccepted={files => onUpload(files)}
+      >
         {({ getRootProps, getInputProps, isDragActive, isDragReject }): any => (
           <DropContainer
             {...getRootProps()}
