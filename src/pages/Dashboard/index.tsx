@@ -44,7 +44,7 @@ const Dashboard: React.FC = () => {
     }
 
     loadTransactions();
-  }, [nbalance, ntransactions]);
+  }, []);
 
   return (
     <>
@@ -91,7 +91,7 @@ const Dashboard: React.FC = () => {
               </tr>
             </thead>
             {ntransactions.map(transaction => (
-              <tbody>
+              <tbody key={transaction.id}>
                 <tr>
                   <td className="title">{transaction.title}</td>
                   {transaction.type === 'outcome' && (
